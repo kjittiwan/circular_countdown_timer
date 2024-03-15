@@ -108,7 +108,7 @@ class CircularCountDownTimer extends StatefulWidget {
     this.strokeWidth = 5.0,
     this.strokeCap = StrokeCap.butt,
     this.textStyle,
-    this.textAlign = TextAlign.left,
+    this.textAlign = TextAlign.center,
     super.key,
     this.isTimerTextShown = true,
     this.autoStart = true,
