@@ -54,6 +54,11 @@ class CircularCountDownTimer extends StatefulWidget {
   /// Begin and end contours with a flat edge and no extension.
   final StrokeCap strokeCap;
 
+  // Subtitle text positioned under the main text
+  final String? subtitle;
+
+  final TextStyle? subtitleStyle;
+
   /// Text Style for Countdown Text.
   final TextStyle? textStyle;
 
@@ -107,6 +112,8 @@ class CircularCountDownTimer extends StatefulWidget {
     this.onChange,
     this.strokeWidth = 5.0,
     this.strokeCap = StrokeCap.butt,
+    this.subtitle,
+    this.subtitleStyle,
     this.textStyle,
     this.textAlign = TextAlign.center,
     super.key,
@@ -306,16 +313,30 @@ class CircularCountDownTimerState extends State<CircularCountDownTimer>
                     widget.isTimerTextShown
                         ? Align(
                             alignment: FractionalOffset.center,
-                            child: Text(
-                              time,
-                              style: widget.textStyle ??
-                                  const TextStyle(
-                                    fontSize: 16.0,
-                                    color: Colors.black,
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  time,
+                                  style: widget.textStyle ??
+                                      const TextStyle(
+                                        fontSize: 16.0,
+                                        color: Colors.black,
+                                      ),
+                                  textAlign: widget.textAlign,
+                                ),
+                                if (widget.subtitle != null)
+                                  Text(
+                                    widget.subtitle!,
+                                    style: widget.subtitleStyle ??
+                                        const TextStyle(
+                                          fontSize: 12.0,
+                                          color: Colors.black,
+                                        ),
+                                    textAlign: widget.textAlign,
                                   ),
-                              textAlign: widget.textAlign,
-                            ),
-                          )
+                              ],
+                            ))
                         : Container(),
                   ],
                 ),
