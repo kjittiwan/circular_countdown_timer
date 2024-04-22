@@ -55,7 +55,7 @@ class CircularCountDownTimer extends StatefulWidget {
   final StrokeCap strokeCap;
 
   // Icon positioned above main text
-  final Icon? icon;
+  final Widget? icon;
 
   // Subtitle text positioned under the main text
   final String? subtitle;
